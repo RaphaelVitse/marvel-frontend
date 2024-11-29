@@ -25,4 +25,5 @@
   object-fit: contain;
   background-attachment: fixed;
   padding-top: 150px;
+  background-size: 105%;
 }

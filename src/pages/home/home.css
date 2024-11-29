@@ -3,15 +3,62 @@ h1 {
   font-size: 90px;
   color: white;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 40px;
   font-weight: bold;
 }
 
-/* .bg {
-  background-image: url("../../assets/.jpg");
+.home {
+  position: relative;
+  background-image: url("../../assets/siora.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
 
   width: 100%;
-} */
+  padding-top: 110px;
+}
+.img-home {
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border: 1px solid black;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  border-radius: 100% 0% 100% 0% / 37% 64% 36% 63%;
+}
+.presentation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 130px;
+}
+
+.presentation div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.presentation h2 {
+  font-size: 35px;
+  color: white;
+}
+
+.presentation button {
+  width: 150px;
+  margin-bottom: 115px;
+  border: none;
+  outline: none;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  cursor: pointer;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 0, 0, 1) 100%
+  );
+}

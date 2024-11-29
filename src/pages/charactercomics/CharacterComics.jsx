@@ -30,62 +30,64 @@ const CharacterComics = () => {
   }, [characterId]);
 
   return (
-    <main className="container">
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <section>
-          <div>
-            <Link to="/characters">Précédent</Link>
+    <main className="main-character">
+      <div className="container">
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <section>
             <div>
-              <img
-                src={
-                  data.thumbnail.path.includes("image_not_available") ||
-                  data.thumbnail.extension === "gif"
-                    ? marvel
-                    : `${data.thumbnail.path}.${data.thumbnail.extension}`
-                }
-                alt={data.name}
-              />
-              <h2 className="title-characters">({data.name})</h2>
+              <Link to="/characters">Précédent</Link>
+              <div>
+                <img
+                  src={
+                    data.thumbnail.path.includes("image_not_available") ||
+                    data.thumbnail.extension === "gif"
+                      ? marvel
+                      : `${data.thumbnail.path}.${data.thumbnail.extension}`
+                  }
+                  alt={data.name}
+                />
+                <h2 className="title-characters">({data.name})</h2>
+              </div>
+              <p>{data.description}</p>
             </div>
-            <p>{data.description}</p>
-          </div>
-          <div className="character">
-            {data.comics.map((charComics) => {
-              console.log(charComics);
+            <div className="character">
+              {data.comics.map((charComics) => {
+                console.log(charComics);
 
-              return (
-                <section key={charComics._id}>
-                  <div className="marvel-card">
-                    <div>
-                      <img
-                        className="marvel"
-                        src={
-                          charComics.thumbnail.path.includes(
-                            "image_not_available"
-                          ) || charComics.thumbnail.extension === "gif"
-                            ? marvel
-                            : `${charComics.thumbnail.path}.${charComics.thumbnail.extension}`
-                        }
-                        alt={charComics.name}
-                      />
-                    </div>
-                    <div>{charComics.name}</div>
-                    {charComics.description ? (
-                      <div className="description">
-                        {charComics.description}
+                return (
+                  <section key={charComics._id}>
+                    <div className="marvel-card">
+                      <div>
+                        <img
+                          className="marvel"
+                          src={
+                            charComics.thumbnail.path.includes(
+                              "image_not_available"
+                            ) || charComics.thumbnail.extension === "gif"
+                              ? marvel
+                              : `${charComics.thumbnail.path}.${charComics.thumbnail.extension}`
+                          }
+                          alt={charComics.name}
+                        />
                       </div>
-                    ) : (
-                      <p className="description">No description available</p>
-                    )}
-                  </div>
-                </section>
-              );
-            })}
-          </div>
-        </section>
-      )}
+                      <div>{charComics.name}</div>
+                      {charComics.description ? (
+                        <div className="description">
+                          {charComics.description}
+                        </div>
+                      ) : (
+                        <p className="description">No description available</p>
+                      )}
+                    </div>
+                  </section>
+                );
+              })}
+            </div>
+          </section>
+        )}
+      </div>
     </main>
   );
 };

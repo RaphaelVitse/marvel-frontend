@@ -1,0 +1,11 @@
+.main-character {
+  width: 100%;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  padding-top: 150px;
+  background: url("../../assets/fond-pages.png");
+  position: relative;
+  z-index: 1;
+  background-attachment: fixed;
+  background-size: 105%;
+}

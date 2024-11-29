@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 
 // PAGES
 
@@ -12,21 +11,19 @@ import CharacterComics from "./pages/charactercomics/CharacterComics";
 //COMPONENTS
 
 import Headers from "./components/Headers";
+import Footer from "./components/Footer";
 
 function App() {
-  const [visible, setVisible] = useState();
   return (
     <Router>
       <Headers />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/characters"
-          element={<Characters visible={visible} setVisible={setVisible} />}
-        />
+        <Route path="/characters" element={<Characters />} />
         <Route path="/comics" element={<Comics />} />
         <Route path="/comics/:characterId" element={<CharacterComics />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
