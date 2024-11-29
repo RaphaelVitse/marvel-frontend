@@ -16,6 +16,7 @@ body {
 .container {
   max-width: 1130px;
   margin: 0 auto;
+  padding: 5px;
 }
 
 .btn-pagination {
@@ -45,4 +46,12 @@ body {
 
 :disabled {
   color: grey;
+}
+@media (max-width: 400px) {
+  .btn-previous-next {
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    font-size: 15px;
+  }
 }

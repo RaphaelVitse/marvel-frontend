@@ -3,6 +3,7 @@ header {
   position: fixed;
   width: 100%;
   z-index: 3;
+  padding-right: 5px;
 }
 .header-nav {
   display: flex;

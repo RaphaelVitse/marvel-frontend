@@ -114,3 +114,19 @@ img .marvel {
   z-index: 2;
   cursor: pointer;
 }
+
+@media (max-width: 1080px) {
+  .character {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .search-bar {
+    width: 250px;
+  }
+  .title-characters-comics {
+    font-size: 35px;
+  }
+}
