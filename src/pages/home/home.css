@@ -1,15 +1,15 @@
-h1 {
+.introduction {
   font-family: "sour-gummy", serif;
-  font-size: 70px;
+  font-size: 60px;
   color: white;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 80px;
   font-weight: bold;
 }
 
 .presentation h2 {
   font-family: sour-gummy;
-  font-size: 35px;
+  font-size: 30px;
   color: white;
 }
 .home {
@@ -19,7 +19,7 @@ h1 {
   background-position: right;
   min-height: 100vh;
   width: 100%;
-  padding-top: 110px;
+  padding-top: 120px;
 }
 .img-home {
   width: 350px;
