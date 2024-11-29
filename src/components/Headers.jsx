@@ -9,12 +9,13 @@ const Headers = () => {
         <div className="head-img">
           <img src={logo} alt="" />
         </div>
-        <Link to="/" className="link-head">
+        <Link to="/characters" className="link-head">
           Home
         </Link>
         <Link to="/characters" className="link-head">
           Characters
         </Link>
+
         <Link to="/comics" className="link-head">
           Comics
         </Link>

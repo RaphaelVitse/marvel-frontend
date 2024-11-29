@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <main className="home">
-      <h1>Welcome in the Marvel World of Comics</h1>
+      <h1>Welcome in the Marvel World of Comics !</h1>
       <section className="presentation container">
         <div>
           <h2> Your are fan of Marvel's characters !</h2>

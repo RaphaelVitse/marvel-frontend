@@ -3,7 +3,7 @@ font-family: "Marvel", serif;
  */
 
 body {
-  font-family: "Marvel", serif;
+  font-family: "sour-gummy", serif;
   font-size: 16px;
   /* background: linear-gradient(
     90deg,
@@ -46,11 +46,3 @@ body {
 :disabled {
   color: grey;
 }
-/* h1 {
-  font-family: "Marvel", serif;
-  font-size: 35px;
-  font-weight: bold;
-}
-p {
-  font-family: "Marvel", serif;
-} */
