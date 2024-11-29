@@ -5,7 +5,7 @@ import { TiThMenu } from "react-icons/ti";
 import { useState } from "react";
 
 const Headers = () => {
-  const [isVisible, setIsVisible] = useState("false");
+  const [isVisible, setIsVisible] = useState(false);
 
   const closeMenu = () => {
     setIsVisible(!isVisible);
@@ -13,9 +13,11 @@ const Headers = () => {
   return (
     <header>
       <nav className="header-nav container">
-        <div className="head-img">
-          <img src={logo} alt="" />
-        </div>
+        <Link to="/">
+          <div className="head-img">
+            <img src={logo} alt="" />
+          </div>
+        </Link>
         <Link to="/" className="link-head">
           Home
         </Link>
