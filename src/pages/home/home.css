@@ -77,7 +77,7 @@ h1 {
     border-radius: 100% 0% 100% 0% / 37% 64% 36% 63%;
   }
   h1 {
-    font-size: 40px;
+    font-size: 39px;
   }
   .presentation h2 {
     font-size: 25px;
@@ -105,12 +105,24 @@ h1 {
     font-size: 15px;
   }
   .presentation h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: 765px) {
   h1 {
     font-size: 30px;
+  }
+}
+@media (max-width: 320px) {
+  h1 {
+    font-size: 20px;
+  }
+  .presentation h2 {
+    font-size: 15px;
+  }
+  .presentation button {
+    width: 80px;
+    font-size: 10px;
   }
 }

@@ -6,3 +6,10 @@ footer {
   height: 50px;
   line-height: 50px;
 }
+
+@media (max-width: 765px) {
+  footer p {
+    font-size: 12px;
+    height: 12px;
+  }
+}
