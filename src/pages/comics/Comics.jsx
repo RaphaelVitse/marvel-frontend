@@ -54,7 +54,7 @@ const Comics = () => {
               <p className="title-characters-comics">
                 Comics <SiMarvelapp />
               </p>
-              <div className="seach">
+              <div className="search">
                 <FiSearch className="icon-search" />
                 <input
                   className="search-bar"
@@ -72,7 +72,7 @@ const Comics = () => {
                 // console.log(character.name);
 
                 return (
-                  <div key={comics._id} className="comic-card">
+                  <div key={comics._id} className="marvel-comic-card">
                     <div
                       onClick={() => {
                         setBookmark(!bookmark);
@@ -103,8 +103,9 @@ const Comics = () => {
                 );
               })}
             </div>
-            <div>
+            <div className="btn-pagination">
               <button
+                className="btn-previous-next"
                 disabled={page === 1}
                 onClick={() => {
                   setPage(page - 1);
@@ -113,6 +114,7 @@ const Comics = () => {
                 Previous
               </button>
               <button
+                className="btn-previous-next"
                 disabled={page === nbMaxPages}
                 onClick={() => {
                   setPage(page + 1);

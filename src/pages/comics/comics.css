@@ -1,7 +1,15 @@
+.main-comics {
+  background-image: url("../../assets/fond-pages.png");
+
+  min-height: 100vh;
+  padding-top: 150px;
+  background-size: 105%;
+}
 .comic {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 30px;
 }
 .comic-card {
   position: relative;
@@ -18,12 +26,4 @@
   margin: 15px 5px;
   border-radius: 8px;
   box-shadow: 4px 4px 6px 0px #000000;
-}
-
-.main-comics {
-  background-image: url("../../assets/fond-pages.png");
-  object-fit: contain;
-  background-attachment: fixed;
-  padding-top: 150px;
-  background-size: 105%;
 }

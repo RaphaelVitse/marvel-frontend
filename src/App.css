@@ -14,10 +14,38 @@ body {
 }
 
 .container {
-  max-width: 1080px;
+  max-width: 1130px;
   margin: 0 auto;
 }
 
+.btn-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.btn-previous-next {
+  width: 150px;
+  margin: 55px 0;
+  border: none;
+  outline: none;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  cursor: pointer;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 0, 0, 1) 100%
+  );
+}
+
+:disabled {
+  color: grey;
+}
 /* h1 {
   font-family: "Marvel", serif;
   font-size: 35px;

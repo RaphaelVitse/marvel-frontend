@@ -54,7 +54,7 @@ const Characters = () => {
               <p className="title-characters-comics">
                 Characters <SiMarvelapp />
               </p>
-              <div className="seach">
+              <div className="search">
                 <FiSearch className="icon-search" />
                 <input
                   className="search-bar"
@@ -76,7 +76,7 @@ const Characters = () => {
                     key={character._id}
                     className="link-marvel"
                   >
-                    <div className="marvel-card">
+                    <div className="marvel-comic-card">
                       {bookmark ? (
                         <IoHeartSharp
                           className="bookmark-false"
@@ -88,7 +88,7 @@ const Characters = () => {
                         <IoHeartOutline className="bookmark-false" />
                       )}
 
-                      <div>
+                      <div className="img-name">
                         <img
                           className="marvel"
                           src={
@@ -100,16 +100,17 @@ const Characters = () => {
                           }
                           alt={character.name}
                         />
+                        <div className="name">{character.name}</div>
                       </div>
-                      <div>{character.name}</div>
                       <div className="description">{character.description}</div>
                     </div>
                   </Link>
                 );
               })}
             </div>
-            <div>
+            <div className="btn-pagination">
               <button
+                className="btn-previous-next"
                 disabled={page === 1}
                 onClick={() => {
                   setPage(page - 1);
@@ -118,6 +119,7 @@ const Characters = () => {
                 Previous
               </button>
               <button
+                className="btn-previous-next"
                 disabled={page === nbMaxPages}
                 onClick={() => {
                   setPage(page + 1);

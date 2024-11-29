@@ -22,7 +22,7 @@ const Home = () => {
               navigate("/characters");
             }}
           >
-            Click <SiMarvelapp />
+            Click <SiMarvelapp />e
           </button>
         </div>
         <div>
@@ -33,7 +33,7 @@ const Home = () => {
               navigate("/comics");
             }}
           >
-            Click <SiMarvelapp />
+            Click <SiMarvelapp />e
           </button>
         </div>
       </section>
