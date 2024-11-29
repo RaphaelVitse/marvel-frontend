@@ -44,90 +44,92 @@ const Characters = () => {
   }, [page, name]);
 
   return (
-    <main className="container">
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <section>
-          <div className="search-container">
-            <p className="title-characters-comics">
-              Characters <SiMarvelapp />
-            </p>
-            <div className="seach">
-              <FiSearch className="icon-search" />
-              <input
-                className="search-bar"
-                type="text"
-                placeholder="Search a heroe : Spiderman,..."
-                onChange={(event) => {
-                  setName(event.target.value);
-                }}
-              />
+    <div className="main-characters">
+      <main className="container">
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <section>
+            <div className="search-container">
+              <p className="title-characters-comics">
+                Characters <SiMarvelapp />
+              </p>
+              <div className="seach">
+                <FiSearch className="icon-search" />
+                <input
+                  className="search-bar"
+                  type="text"
+                  placeholder="Search a heroe : Spiderman,..."
+                  onChange={(event) => {
+                    setName(event.target.value);
+                  }}
+                />
+              </div>
             </div>
-          </div>
-          <div className="character">
-            {data.results.map((character) => {
-              // console.log(character.name);
+            <div className="character">
+              {data.results.map((character) => {
+                // console.log(character.name);
 
-              return (
-                <Link
-                  to={`/comics/${character._id}`}
-                  key={character._id}
-                  className="link-marvel"
-                >
-                  <div className="marvel-card">
-                    {bookmark ? (
-                      <IoHeartSharp
-                        className="bookmark-false"
-                        onClick={() => {
-                          setBookmark(!bookmark);
-                        }}
-                      />
-                    ) : (
-                      <IoHeartOutline className="bookmark-false" />
-                    )}
+                return (
+                  <Link
+                    to={`/comics/${character._id}`}
+                    key={character._id}
+                    className="link-marvel"
+                  >
+                    <div className="marvel-card">
+                      {bookmark ? (
+                        <IoHeartSharp
+                          className="bookmark-false"
+                          onClick={() => {
+                            setBookmark(!bookmark);
+                          }}
+                        />
+                      ) : (
+                        <IoHeartOutline className="bookmark-false" />
+                      )}
 
-                    <div>
-                      <img
-                        className="marvel"
-                        src={
-                          character.thumbnail.path.includes(
-                            "image_not_available"
-                          ) || character.thumbnail.extension === "gif"
-                            ? marvel
-                            : `${character.thumbnail.path}.${character.thumbnail.extension}`
-                        }
-                        alt={character.name}
-                      />
+                      <div>
+                        <img
+                          className="marvel"
+                          src={
+                            character.thumbnail.path.includes(
+                              "image_not_available"
+                            ) || character.thumbnail.extension === "gif"
+                              ? marvel
+                              : `${character.thumbnail.path}.${character.thumbnail.extension}`
+                          }
+                          alt={character.name}
+                        />
+                      </div>
+                      <div>{character.name}</div>
+                      <div className="description">{character.description}</div>
                     </div>
-                    <div>{character.name}</div>
-                    <div className="description">{character.description}</div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-          <div>
-            <button
-              disabled={page === 1}
-              onClick={() => {
-                setPage(page - 1);
-              }}
-            >
-              Previous
-            </button>
-            <button
-              disabled={page === nbMaxPages}
-              onClick={() => {
-                setPage(page + 1);
-              }}
-            >
-              Next
-            </button>
-          </div>
-        </section>
-      )}
-    </main>
+                  </Link>
+                );
+              })}
+            </div>
+            <div>
+              <button
+                disabled={page === 1}
+                onClick={() => {
+                  setPage(page - 1);
+                }}
+              >
+                Previous
+              </button>
+              <button
+                disabled={page === nbMaxPages}
+                onClick={() => {
+                  setPage(page + 1);
+                }}
+              >
+                Next
+              </button>
+            </div>
+          </section>
+        )}
+      </main>
+    </div>
   );
 };
 

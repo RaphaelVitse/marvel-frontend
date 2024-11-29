@@ -19,3 +19,10 @@
   border-radius: 8px;
   box-shadow: 4px 4px 6px 0px #000000;
 }
+
+.main-comics {
+  background-image: url("../../assets/fond-pages.png");
+  object-fit: contain;
+  background-attachment: fixed;
+  padding-top: 150px;
+}

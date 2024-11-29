@@ -5,6 +5,12 @@ img .marvel {
   object-fit: cover;
 }
 
+.main-characters {
+  background-image: url("../../assets/fond-pages.png");
+  object-fit: contain;
+  background-attachment: fixed;
+  padding-top: 150px;
+}
 .character {
   display: flex;
   flex-wrap: wrap;
@@ -45,6 +51,7 @@ img .marvel {
   gap: 30px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 55px;
 }
 .search {
   display: flex;

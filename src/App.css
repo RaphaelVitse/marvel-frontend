@@ -5,18 +5,19 @@ font-family: "Marvel", serif;
 body {
   font-family: "Marvel", serif;
   font-size: 16px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     rgba(112, 11, 27, 1) 0%,
     rgba(188, 67, 80, 1) 45%,
     rgba(214, 63, 73, 1) 75%
-  );
+  ); */
 }
 
 .container {
   max-width: 1080px;
   margin: 0 auto;
 }
+
 /* h1 {
   font-family: "Marvel", serif;
   font-size: 35px;

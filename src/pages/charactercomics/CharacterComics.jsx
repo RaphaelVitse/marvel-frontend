@@ -1,5 +1,5 @@
 import "../charactercomics/characterComics.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import marvel from "../../assets/marvel.jpeg";
@@ -36,7 +36,7 @@ const CharacterComics = () => {
       ) : (
         <section>
           <div>
-            <button>Précédent</button>
+            <Link to="/characters">Précédent</Link>
             <div>
               <img
                 src={
