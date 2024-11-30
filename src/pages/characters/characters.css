@@ -19,7 +19,8 @@ img .marvel {
 .character {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 25px;
 }
 .title-characters-comics {
   font-size: 45px;
@@ -39,7 +40,7 @@ img .marvel {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-starts;
+  justify-content: flex-start;
   align-items: center;
   background: white;
   gap: 10px;

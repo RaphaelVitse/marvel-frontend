@@ -8,3 +8,148 @@
   background-attachment: fixed;
   background-size: cover;
 }
+.previous-arrow {
+  color: white;
+  font-size: 20px;
+  background: #000000;
+  padding: 10px;
+  border-radius: 999px;
+  text-align: center;
+  display: flex;
+}
+.icon-arrow {
+  color: white;
+}
+.head-page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* background: blue; */
+  position: relative;
+}
+.head-page-link {
+  /* background: crimson; */
+  display: flex;
+  justify-content: flex-start;
+  max-width: 10%;
+}
+.head-page-img-name {
+  /* background: green; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+  width: 1000px;
+}
+.head-page-img {
+  padding-left: 35px;
+}
+
+.head-page-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 4px 4px 6px 0px #000000;
+  width: 100%;
+  gap: 30px;
+  background: white;
+  min-height: 150px;
+  padding: 15px;
+  border-radius: 8px;
+}
+.head-page-description h2 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.head-page-description p {
+  font-size: 18px;
+  text-align: justify;
+  padding-right: 5px;
+}
+
+.character {
+  border: 2px solid black;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.marvel-comic-card-by-character {
+  position: relative;
+
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  scrollbar-width: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: white;
+  gap: 10px;
+  margin: 15px 5px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 6px 0px #000000;
+  background: rgb(1, 1, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(1, 1, 1, 1) 25%,
+    rgba(156, 156, 156, 1) 48%,
+    rgba(255, 255, 255, 1) 77%
+  );
+}
+.description-comic {
+  height: 300px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.comic-title {
+  font-weight: bold;
+}
+
+@media (max-width: 880px) {
+  .head-page-description p {
+    font-size: 15px;
+    /* background: gold; */
+  }
+}
+@media (max-width: 700px) {
+  .head-page-img-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background: pink; */
+  }
+  .head-page-img {
+    padding-left: 0px;
+  }
+  .head-page-description {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .head-page-description h2 {
+    font-size: 20px;
+  }
+  .head-page-link {
+    /* background: crimson; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 50px;
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+  }
+  .description-comic {
+    height: 500px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+}
+
+@media (max-width: 335px) {
+  .marvel-comic-card-by-character {
+    width: 290px;
+  }
+}

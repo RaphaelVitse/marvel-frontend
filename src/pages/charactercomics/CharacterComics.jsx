@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import marvel from "../../assets/marvel.jpeg";
+import { GrLinkPrevious } from "react-icons/gr";
 
 const CharacterComics = () => {
   const { characterId } = useParams();
@@ -36,29 +37,38 @@ const CharacterComics = () => {
           <p>Loading...</p>
         ) : (
           <section>
-            <div>
-              <Link to="/characters">Précédent</Link>
-              <div>
-                <img
-                  src={
-                    data.thumbnail.path.includes("image_not_available") ||
-                    data.thumbnail.extension === "gif"
-                      ? marvel
-                      : `${data.thumbnail.path}.${data.thumbnail.extension}`
-                  }
-                  alt={data.name}
-                />
-                <h2 className="title-characters">({data.name})</h2>
+            <div className="head-page">
+              <div className="head-page-link">
+                <Link className="previous-arrow" to="/characters">
+                  <GrLinkPrevious className="icon-arrow" />
+                </Link>
               </div>
-              <p>{data.description}</p>
+              <div className="head-page-img-name">
+                <div className="head-page-img">
+                  <img
+                    src={
+                      data.thumbnail.path.includes("image_not_available") ||
+                      data.thumbnail.extension === "gif"
+                        ? marvel
+                        : `${data.thumbnail.path}.${data.thumbnail.extension}`
+                    }
+                    alt={data.name}
+                  />
+                </div>
+                <div className="head-page-description">
+                  <h2 className="title-characters">({data.name})</h2>
+
+                  <p className="description-charac">{data.description}</p>
+                </div>
+              </div>
             </div>
             <div className="character">
               {data.comics.map((charComics) => {
                 console.log(charComics);
 
                 return (
-                  <section key={charComics._id}>
-                    <div className="marvel-card">
+                  <section className="character-results" key={charComics._id}>
+                    <div className="marvel-comic-card-by-character">
                       <div>
                         <img
                           className="marvel"
@@ -72,13 +82,15 @@ const CharacterComics = () => {
                           alt={charComics.name}
                         />
                       </div>
-                      <div>{charComics.name}</div>
+                      <div className="comic-title">{charComics.name}</div>
                       {charComics.description ? (
-                        <div className="description">
+                        <div className="description-comic">
                           {charComics.description}
                         </div>
                       ) : (
-                        <p className="description">No description available</p>
+                        <p className="description-comic">
+                          No description available
+                        </p>
                       )}
                     </div>
                   </section>
