@@ -31,22 +31,25 @@ header div {
 .responsive {
   display: none;
 }
+.icon-burger {
+  font-size: 30px;
+}
 .menu-burger {
   width: 100px;
-  height: 75px;
   background: black;
   position: absolute;
   right: 0px;
-  top: 43px;
+  top: 50px;
   display: flex;
   flex-direction: column;
   gap: 5px;
   justify-content: flex-start;
   align-items: center;
+  padding: 10px 0;
 }
 .link-head-burger {
   color: white;
-  font-size: 12px;
+  font-size: 15px;
   text-decoration: none;
 }
 

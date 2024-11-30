@@ -37,7 +37,7 @@ const Headers = () => {
             setIsVisible(!isVisible);
           }}
         >
-          <TiThMenu />
+          <TiThMenu className="icon-burger" />
         </div>
         {isVisible && (
           <div className="menu-burger">
