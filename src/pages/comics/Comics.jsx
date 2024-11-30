@@ -9,19 +9,55 @@ import { FiSearch } from "react-icons/fi";
 
 import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
+import Cookies from "js-cookie";
 
 const Comics = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [title, setTitle] = useState("");
-  const [bookmark, setBookmark] = useState(false);
+  const [bookmark, setBookmark] = useState([]);
 
   const limit = 100;
   const totalCharacters = data.count;
-  console.log(totalCharacters);
+  // console.log(totalCharacters);
   const nbMaxPages = Math.ceil(totalCharacters / limit);
-  console.log(nbMaxPages);
+  // console.log(nbMaxPages);
+
+  const favorites = (fav) => {
+    // console.log("fav", fav);
+
+    const isAlreadyFavorited = bookmark.includes(fav);
+    let updatedBookmarks;
+    if (isAlreadyFavorited) {
+      updatedBookmarks = bookmark.filter((id) => id !== fav); // Retirer
+      setBookmark(updatedBookmarks); // je retire
+      // localStorage.setItem("bookmark", JSON.stringify(bookmark)); // Mise à jour du cookie
+      console.log(
+        "localStorage après clic :",
+        JSON.parse(localStorage.getItem("bookmark"))
+      );
+    } else {
+      setBookmark((prev) => [...prev, fav]);
+      // localStorage.setItem("bookmark", JSON.stringify(bookmark)); // Mise à jour du cookie // j'ajoute
+    }
+    Cookies.set("bookmark", JSON.stringify(bookmark));
+
+    // const isAlreadyFavorited = bookmark.includes(fav);
+    // if (isAlreadyFavorited) {
+    //   setBookmark((prev) => prev.filter((id) => id !== fav)); // je retire
+    // } else {
+    //   setBookmark((prev) => [...prev, fav]); // j'ajoute
+    // }
+  };
+  useEffect(() => {
+    const savedBookmarks = Cookies.get("bookmark");
+    if (savedBookmarks) {
+      setBookmark(JSON.parse(savedBookmarks)); // Charger les favoris sauvegardés
+
+      console.log(savedBookmarks);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,16 +108,16 @@ const Comics = () => {
                 // console.log(character.name);
 
                 return (
-                  <div key={comics._id} className="marvel-comic-card">
+                  <div key={comics._id} className="comic-card">
                     <div
                       onClick={() => {
-                        setBookmark(!bookmark);
+                        favorites(comics._id);
                       }}
                     >
-                      {bookmark ? (
-                        <IoHeartSharp className="bookmark-false" />
+                      {bookmark.includes(comics._id) ? (
+                        <IoHeartSharp className="bookmark" /> //favorite
                       ) : (
-                        <IoHeartOutline className="bookmark-false" />
+                        <IoHeartOutline className="bookmark" /> //non favorite
                       )}
                     </div>
                     <div>

@@ -9,6 +9,7 @@ import { FiSearch } from "react-icons/fi";
 import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
 <IoHeartSharp />;
+import Cookies from "js-cookie";
 
 const Characters = () => {
   const [data, setData] = useState({});
@@ -22,6 +23,41 @@ const Characters = () => {
   console.log(totalCharacters);
   const nbMaxPages = Math.ceil(totalCharacters / limit);
   console.log(nbMaxPages);
+
+  const favorites = (fav) => {
+    // console.log("fav", fav);
+
+    const isAlreadyFavorited = bookmark.includes(fav);
+    let updatedBookmarks;
+    if (isAlreadyFavorited) {
+      updatedBookmarks = bookmark.filter((id) => id !== fav); // Retirer
+      setBookmark(updatedBookmarks); // je retire
+      // localStorage.setItem("bookmark", JSON.stringify(bookmark)); // Mise à jour du cookie
+      console.log(
+        "localStorage après clic :",
+        JSON.parse(localStorage.getItem("bookmark"))
+      );
+    } else {
+      setBookmark((prev) => [...prev, fav]);
+      // localStorage.setItem("bookmark", JSON.stringify(bookmark)); // Mise à jour du cookie // j'ajoute
+    }
+    Cookies.set("bookmark", JSON.stringify(bookmark));
+
+    // const isAlreadyFavorited = bookmark.includes(fav);
+    // if (isAlreadyFavorited) {
+    //   setBookmark((prev) => prev.filter((id) => id !== fav)); // je retire
+    // } else {
+    //   setBookmark((prev) => [...prev, fav]); // j'ajoute
+    // }
+  };
+  useEffect(() => {
+    const savedBookmarks = Cookies.get("bookmark");
+    if (savedBookmarks) {
+      setBookmark(JSON.parse(savedBookmarks)); // Charger les favoris sauvegardés
+
+      console.log(savedBookmarks);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,22 +107,19 @@ const Characters = () => {
                 // console.log(character.name);
 
                 return (
-                  <Link
-                    to={`/comics/${character._id}`}
-                    key={character._id}
-                    className="link-marvel"
-                  >
+                  <section key={character._id} className="link-marvel">
                     <div className="marvel-comic-card">
-                      {bookmark ? (
-                        <IoHeartSharp
-                          className="bookmark-false"
-                          onClick={() => {
-                            setBookmark(!bookmark);
-                          }}
-                        />
-                      ) : (
-                        <IoHeartOutline className="bookmark-false" />
-                      )}
+                      <div
+                        onClick={() => {
+                          favorites(character._id);
+                        }}
+                      >
+                        {bookmark.includes(character._id) ? (
+                          <IoHeartSharp className="bookmark" /> //favorite
+                        ) : (
+                          <IoHeartOutline className="bookmark" /> //non favorite
+                        )}
+                      </div>
 
                       <div className="img-name">
                         <img
@@ -100,11 +133,19 @@ const Characters = () => {
                           }
                           alt={character.name}
                         />
-                        <div className="name">{character.name}</div>
                       </div>
+                      <div className="name">{character.name}</div>
                       <div className="description">{character.description}</div>
                     </div>
-                  </Link>
+                    <div className="more-details">
+                      <Link
+                        to={`/comics/${character._id}`}
+                        className="more-details-icon"
+                      >
+                        More details
+                      </Link>
+                    </div>
+                  </section>
                 );
               })}
             </div>

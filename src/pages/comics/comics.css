@@ -14,7 +14,7 @@
 .comic-card {
   position: relative;
   width: 250px;
-  height: 300px;
+  height: 350px;
   overflow: hidden;
   padding: 20px;
   display: flex;
@@ -26,6 +26,17 @@
   margin: 15px 5px;
   border-radius: 8px;
   box-shadow: 4px 4px 6px 0px #000000;
+  background: rgb(1, 1, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(1, 1, 1, 1) 25%,
+    rgba(156, 156, 156, 1) 48%,
+    rgba(255, 255, 255, 1) 77%
+  );
+}
+.description {
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 @media (max-width: 1124px) {
