@@ -13,7 +13,7 @@ const Home = () => {
       </h1>
       <section className="presentation container">
         <div>
-          <h2> Your are fan of Marvel's characters !</h2>
+          <h2> You are fan of Marvel's characters !</h2>
           <img
             className="img-home"
             src={characters}
@@ -28,7 +28,7 @@ const Home = () => {
           </button>
         </div>
         <div>
-          <h2> Your are fan of Marvel's comics !</h2>
+          <h2> You are fan of Marvel's comics !</h2>
           <img className="img-home" src={comics} alt="couverture de comics" />
           <button
             onClick={() => {
