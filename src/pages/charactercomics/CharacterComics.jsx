@@ -7,7 +7,7 @@ import { GrLinkPrevious } from "react-icons/gr";
 
 const CharacterComics = () => {
   const { characterId } = useParams();
-  console.log(characterId);
+  // console.log(characterId);
 
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -64,7 +64,7 @@ const CharacterComics = () => {
             </div>
             <div className="character">
               {data.comics.map((charComics) => {
-                console.log(charComics);
+                // console.log(charComics);
 
                 return (
                   <section className="character-results" key={charComics._id}>

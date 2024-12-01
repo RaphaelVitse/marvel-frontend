@@ -9,7 +9,7 @@ import { FiSearch } from "react-icons/fi";
 
 import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 const Comics = () => {
   const [data, setData] = useState({});
@@ -25,37 +25,26 @@ const Comics = () => {
   // console.log(nbMaxPages);
 
   const favorites = (fav) => {
-    // console.log("fav", fav);
-
     const isAlreadyFavorited = bookmark.includes(fav);
+    // console.log(isAlreadyFavorited);
+
     let updatedBookmarks;
     if (isAlreadyFavorited) {
-      updatedBookmarks = bookmark.filter((id) => id !== fav); // Retirer
-      setBookmark(updatedBookmarks); // je retire
-      // localStorage.setItem("bookmark", JSON.stringify(bookmark)); // Mise à jour du cookie
-      console.log(
-        "localStorage après clic :",
-        JSON.parse(localStorage.getItem("bookmark"))
-      );
+      updatedBookmarks = bookmark.filter((id) => id !== fav); // c'est pour retirer un fav
     } else {
-      setBookmark((prev) => [...prev, fav]);
-      // localStorage.setItem("bookmark", JSON.stringify(bookmark)); // Mise à jour du cookie // j'ajoute
+      updatedBookmarks = [...bookmark];
+      updatedBookmarks.push(fav); //c'est pour ajouter un fav
     }
-    Cookies.set("bookmark", JSON.stringify(bookmark));
 
-    // const isAlreadyFavorited = bookmark.includes(fav);
-    // if (isAlreadyFavorited) {
-    //   setBookmark((prev) => prev.filter((id) => id !== fav)); // je retire
-    // } else {
-    //   setBookmark((prev) => [...prev, fav]); // j'ajoute
-    // }
+    setBookmark(updatedBookmarks);
+    localStorage.setItem("bookmarks", JSON.stringify(updatedBookmarks));
   };
-  useEffect(() => {
-    const savedBookmarks = Cookies.get("bookmark");
-    if (savedBookmarks) {
-      setBookmark(JSON.parse(savedBookmarks)); // Charger les favoris sauvegardés
 
-      console.log(savedBookmarks);
+  useEffect(() => {
+    const savedBookmarks = localStorage.getItem("bookmarks");
+
+    if (savedBookmarks) {
+      setBookmark(JSON.parse(savedBookmarks));
     }
   }, []);
 
@@ -68,7 +57,7 @@ const Comics = () => {
             "&title=" +
             title
         );
-        console.log(response.data);
+        // console.log(response.data);
 
         setData(response.data);
         setIsLoading(false);
@@ -76,6 +65,7 @@ const Comics = () => {
         console.log(error);
       }
     };
+
     fetchData();
   }, [title, page]);
 

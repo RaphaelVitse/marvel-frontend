@@ -1,38 +1,51 @@
 import "../characters/characters.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import logo from "../../assets/logo-marvel.png";
 import marvel from "../../assets/marvel.jpeg";
 import { Link } from "react-router-dom";
 import { SiMarvelapp } from "react-icons/si";
 import { FiSearch } from "react-icons/fi";
 import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
-<IoHeartSharp />;
+import Cookies from "js-cookie";
 
 const Characters = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [name, setName] = useState("");
-  const [bookmark, setBookmark] = useState(false);
+  const [bookmark, setBookmark] = useState([]);
 
   const limit = 100;
   const totalCharacters = data.count;
-  console.log(totalCharacters);
+  // console.log(totalCharacters);
   const nbMaxPages = Math.ceil(totalCharacters / limit);
-  console.log(nbMaxPages);
+  // console.log(nbMaxPages);
 
   const favorites = (fav) => {
     // console.log("fav", fav);
 
     const isAlreadyFavorited = bookmark.includes(fav);
+
+    let updatedBookmarks;
     if (isAlreadyFavorited) {
-      setBookmark((prev) => prev.filter((id) => id !== fav)); // je retire
+      updatedBookmarks = bookmark.filter((id) => id !== fav); // je retire des favoris
     } else {
-      setBookmark((prev) => [...prev, fav]); // j'ajoute
+      updatedBookmarks = [...bookmark];
+      updatedBookmarks.push(fav); //c'est pour ajouter un fav
     }
+    setBookmark(updatedBookmarks);
+    Cookies.set("bookmarks", JSON.stringify(updatedBookmarks), {
+      expires: 180,
+    });
   };
+  useEffect(() => {
+    const savedBookmarks = Cookies.get("bookmarks");
+
+    if (savedBookmarks) {
+      setBookmark(JSON.parse(savedBookmarks));
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +56,7 @@ const Characters = () => {
             "&name=" +
             name
         );
-        console.log(response.data);
+        // console.log(response.data);
 
         setData(response.data);
         setIsLoading(false);
@@ -82,14 +95,14 @@ const Characters = () => {
                 // console.log(character.name);
 
                 return (
-                  <section key={character._id} className="link-marvel">
+                  <section key={character._id}>
                     <div className="marvel-comic-card">
                       <div
                         onClick={() => {
                           favorites(character._id);
                         }}
                       >
-                        {bookmark ? (
+                        {bookmark.includes(character._id) ? (
                           <IoHeartSharp className="bookmark" /> //favorite
                         ) : (
                           <IoHeartOutline className="bookmark" /> //non favorite
