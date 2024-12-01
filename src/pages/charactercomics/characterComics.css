@@ -126,7 +126,9 @@
   .head-page-description {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
+    max-width: 625px;
   }
   .head-page-description h2 {
     font-size: 20px;
@@ -147,7 +149,16 @@
     scrollbar-width: none;
   }
 }
-
+@media (max-width: 659px) {
+  .head-page-description {
+    max-width: 400px;
+  }
+}
+@media (max-width: 450px) {
+  .head-page-description {
+    max-width: 300px;
+  }
+}
 @media (max-width: 335px) {
   .marvel-comic-card-by-character {
     width: 290px;

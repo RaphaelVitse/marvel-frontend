@@ -9,12 +9,12 @@ import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
 import Cookies from "js-cookie";
 
-const Characters = () => {
+const Characters = ({ bookmark, setBookmark }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [name, setName] = useState("");
-  const [bookmark, setBookmark] = useState([]);
+  // const [bookmark, setBookmark] = useState([]);
 
   const limit = 100;
   const totalCharacters = data.count;
@@ -45,7 +45,7 @@ const Characters = () => {
     if (savedBookmarks) {
       setBookmark(JSON.parse(savedBookmarks));
     }
-  }, []);
+  }, [setBookmark]);
 
   useEffect(() => {
     const fetchData = async () => {

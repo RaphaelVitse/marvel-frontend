@@ -1,0 +1,29 @@
+.main-bookmark {
+  background-image: url("../../assets/fond-pages.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+  background-attachment: fixed;
+  padding-top: 150px;
+}
+
+img,
+img .marvel {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.main-bookmark p {
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 35px;
+}
+.main-bookmark h2 {
+  text-align: center;
+  color: white;
+  font-size: 35px;
+}
